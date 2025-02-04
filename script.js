@@ -19,7 +19,8 @@ function addPlayer() {
             name: name,
             score: 501,
             history: [],
-            legsWon: 0, // Leg-Zähler hinzufügen
+            legsWon: 0,
+            totalPoints: 0, // Gesamtpunkte für den Durchschnitt
             color: colors[players.length % colors.length]
         });
         updatePlayerList();
@@ -32,10 +33,10 @@ function addPlayer() {
 function updatePlayerList() {
     const playerList = document.getElementById('player-list');
     playerList.innerHTML = players.map((player, index) => `
-        <div class="player-item" id="player-item-${index}" style="${index === startingPlayerIndex ? 'background-color: #e8f5e9;' : ''}">
+        <div class="player-item">
             <span>${player.name} (Legs: ${player.legsWon})</span>
             <button class="remove-btn" onclick="removePlayer(${index})">Entfernen</button>
-            <button class="change-starter-btn" onclick="setStartingPlayer(${index})">Anwurf</button>
+            <button class="change-starter-btn ${index === startingPlayerIndex ? 'selected' : ''}" onclick="setStartingPlayer(${index})">Anwurf</button>
         </div>
     `).join('');
 }
@@ -63,7 +64,7 @@ function initGame() {
     container.innerHTML = players.map((player, index) => `
         <div class="player-table player-table-${index % colors.length}" id="player-${index}">
             <h3 style="color: ${player.color}">${player.name}</h3>
-            <div class="average">Durchschnitt: -</div>
+            <div class="average">Avg.: ${calculateAverage(player)}</div>
             <div class="legs">Gewonnene Legs: ${player.legsWon}</div>
             <table>
                 <thead>
@@ -85,6 +86,8 @@ document.getElementById('submitScore').addEventListener('click', addScore);
 document.getElementById('scoreInput').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addScore();
 });
+
+document.getElementById('undoBtn').addEventListener('click', undoLastScore);
 
 function addScore() {
     const input = document.getElementById('scoreInput');
@@ -109,35 +112,10 @@ function addScore() {
     // Update Spieler
     currentPlayer.history.push(points);
     currentPlayer.score = newScore;
+    currentPlayer.totalPoints += points; // Gesamtpunkte aktualisieren
 
     // Update Tabelle
-    const tableBody = currentTable.querySelector('tbody');
-    
-    // Neue Zeile am Ende einfügen
-    const newRow = tableBody.insertRow();
-    newRow.innerHTML = `
-        <td>${points}</td>
-        <td>${newScore}</td>
-    `;
-
-    // Alle Zeilen durchstreichen (außer letzter)
-    const rows = tableBody.rows;
-    for (let i = 0; i < rows.length - 1; i++) {
-        rows[i].cells[0].classList.add('strikethrough');
-        rows[i].cells[1].classList.add('strikethrough');
-    }
-
-    // Letzte Zeile hervorheben
-    const lastRow = rows[rows.length - 1];
-    lastRow.cells[1].classList.add('current-score');
-    lastRow.cells[1].style.color = currentPlayer.color;
-
-    // Durchschnitt berechnen
-    const totalPoints = currentPlayer.history.reduce((a, b) => a + b, 0);
-    const average = currentPlayer.history.length > 0 
-        ? (totalPoints / currentPlayer.history.length).toFixed(2) 
-        : '-';
-    currentTable.querySelector('.average').textContent = `Durchschnitt: ${average}`;
+    updateTable(currentTable, currentPlayer);
 
     // Gewinnbedingung
     if (newScore === 0) {
@@ -151,6 +129,50 @@ function addScore() {
     updateCurrentPlayer();
     input.value = ''; // Eingabefeld leeren
     input.focus();
+}
+
+function updateTable(table, player) {
+    const tableBody = table.querySelector('tbody');
+    
+    // Neue Zeile am Ende einfügen
+    const newRow = tableBody.insertRow();
+    newRow.innerHTML = `
+        <td>${player.history[player.history.length - 1]}</td>
+        <td>${player.score}</td>
+    `;
+
+    // Alle Zeilen durchstreichen (außer letzter)
+    const rows = tableBody.rows;
+    for (let i = 0; i < rows.length - 1; i++) {
+        rows[i].cells[0].classList.add('strikethrough');
+        rows[i].cells[1].classList.add('strikethrough');
+    }
+
+    // Letzte Zeile hervorheben
+    const lastRow = rows[rows.length - 1];
+    lastRow.cells[1].classList.add('current-score');
+    lastRow.cells[1].style.color = player.color;
+
+    // Durchschnitt aktualisieren
+    table.querySelector('.average').textContent = `Avg.: ${calculateAverage(player)}`;
+}
+
+function calculateAverage(player) {
+    return player.history.length > 0 
+        ? (player.totalPoints / player.history.length).toFixed(2) 
+        : '-';
+}
+
+function undoLastScore() {
+    const currentPlayer = players[currentPlayerIndex];
+    if (currentPlayer.history.length === 0) return;
+
+    const lastScore = currentPlayer.history.pop();
+    currentPlayer.score += lastScore;
+    currentPlayer.totalPoints -= lastScore;
+
+    const currentTable = document.getElementById(`player-${currentPlayerIndex}`);
+    updateTable(currentTable, currentPlayer);
 }
 
 function updateCurrentPlayer() {
