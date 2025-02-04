@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dartscore 501</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Dartscore 501</h1>
+    <div id="scoreboard">
+        <!-- Spieler-Setup -->
+        <div id="player-setup">
+            <div id="add-player">
+                <input type="text" id="playerNameInput" placeholder="Spielername" autofocus>
+                <button id="addPlayerBtn">Spieler hinzufügen (Enter)</button>
+            </div>
+            <div id="player-list"></div>
+            <button id="startGame" disabled>Spiel starten</button>
+        </div>
+
+        <!-- Spiel-Logik -->
+        <div id="game-section" style="display: none;">
+            <div id="current-turn">
+                <span id="current-player"></span>
+                <input type="number" id="scoreInput" placeholder="Punkte eingeben">
+                <button id="submitScore">Hinzufügen (Enter)</button>
+            </div>
+            <div id="tables-container"></div>
+            <button id="resetGame">Neues Spiel</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
