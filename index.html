@@ -3,34 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dartscore 501</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dart Master - Spieleübersicht</title>
+    <link rel="stylesheet" href="style-main.css">
+    <style>
+        /* ========== Original Karten-Design ========== */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: #2c3e50;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-title {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .coming-soon {
+            font-size: 0.7em;
+            color: #868e96;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.8rem;
+        }
+
+        /* Farbpalette */
+        .game-card:nth-child(1) { 
+            border-color: #2196F3;
+            background: rgba(33, 150, 243, 0.1);
+        }
+        .game-card:nth-child(2) { 
+            border-color: #FF5722;
+            background: rgba(255, 87, 34, 0.1);
+        }
+        .game-card:nth-child(3) { 
+            border-color: #00BCD4;
+            background: rgba(0, 188, 212, 0.1);
+        }
+        .game-card:nth-child(4) { 
+            border-color: #9C27B0;
+            background: rgba(156, 39, 176, 0.1);
+        }
+        .game-card:nth-child(5) { 
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        .game-card:nth-child(6) { 
+            border-color: #FF9800;
+            background: rgba(255, 152, 0, 0.1);
+        }
+        .game-card:nth-child(7) { 
+            border-color: #009688;
+            background: rgba(0, 150, 136, 0.1);
+        }
+        .game-card:nth-child(8) { 
+            border-color: #795548;
+            background: rgba(121, 85, 72, 0.1);
+        }
+        .game-card:nth-child(9) { 
+            border-color: #E91E63;
+            background: rgba(233, 30, 99, 0.1);
+        }
+        .game-card:nth-child(10) { 
+            border-color: #3F51B5;
+            background: rgba(63, 81, 181, 0.1);
+        }
+        .game-card:nth-child(11) { 
+            border-color: #8BC34A;
+            background: rgba(139, 195, 74, 0.1);
+        }
+        .game-card:nth-child(12) { 
+            border-color: #607D8B;
+            background: rgba(96, 125, 139, 0.1);
+        }
+
+        /* ========== Moderne Seiten-Elemente ========== */
+        .modern-header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 4rem 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .modern-header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .version-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Dartscore 501</h1>
-    <div id="scoreboard">
-        <!-- Spieler-Setup -->
-        <div id="player-setup">
-            <div id="add-player">
-                <input type="text" id="playerNameInput" placeholder="Spielername" autofocus>
-                <button id="addPlayerBtn">Spieler hinzufügen (Enter)</button>
-            </div>
-            <div id="player-list"></div>
-            <button id="startGame" disabled>Spiel starten</button>
+    <header class="modern-header">
+        <h1>Dart-Spiele</h1>
+        <div class="version-badge">Aktuelle Version: 2.1</div>
+    </header>
+
+  <div class="game-grid">
+    <a href="games/501/index-501.html" class="game-card">
+        <div class="game-title">501</div>
+    </a>
+    
+    <div class="game-card">
+        <div class="game-title">Halve-It</div>
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+
+    <div class="game-card">
+        <div class="game-title">Around the World</div>
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+
+    <div class="game-card">
+        <div class="game-title">JDC</div>
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+
+    <!-- Neuer Eintrag für Do or Die -->
+    <a href="games/Do%20or%20Die/index-doordie.html" class="game-card">
+        <div class="game-title">Do or Die</div>
+    </a>
+
+    <!-- Restliche Platzhalter -->
+    <div class="game-card">
+        <div class="game-title">Spiel B</div>
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+
+    <div class="game-card">
+        <div class="game-title">Spiel C</div>
+        <div class="coming-soon">Coming Soon</div>
+    </div>
+
+        <div class="game-card">
+            <div class="game-title">Spiel D</div>
+            <div class="coming-soon">Coming Soon</div>
         </div>
 
-        <!-- Spiel-Logik -->
-        <div id="game-section" style="display: none;">
-            <div id="current-turn">
-                <span id="current-player"></span>
-                <input type="number" id="scoreInput" placeholder="Punkte eingeben">
-                <button id="submitScore">Hinzufügen (Enter)</button>
-                <button id="undoBtn">Rückgängig</button>
-            </div>
-            <div id="tables-container"></div>
-            <button id="resetGame">Neues Spiel</button>
+        <div class="game-card">
+            <div class="game-title">Spiel E</div>
+            <div class="coming-soon">Coming Soon</div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">Spiel F</div>
+            <div class="coming-soon">Coming Soon</div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">Spiel G</div>
+            <div class="coming-soon">Coming Soon</div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">Spiel H</div>
+            <div class="coming-soon">Coming Soon</div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <footer class="text-center" style="padding: 2rem; color: #666;">
+        <p>© 2024 Dart Master | Alle Rechte vorbehalten</p>
+    </footer>
 </body>
 </html>

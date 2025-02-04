@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    color: #e74c3c;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.players-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.player {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 200px;
+}
+
+.life-bar {
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.life-progress {
+    height: 100%;
+    background: #2ecc71;
+    width: 100%;
+    transition: width 0.3s ease;
+}
+
+.current-score {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #3498db;
+    margin: 10px 0;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s;
+}
+
+#throwBtn {
+    background: #3498db;
+    color: white;
+}
+
+#throwBtn:hover {
+    background: #2980b9;
+}
+
+#resetGame {
+    background: #e74c3c;
+    color: white;
+    margin-top: 20px;
+}
+
+#resetGame:hover {
+    background: #c0392b;
+}
+
+.active-player {
+    box-shadow: 0 0 0 3px #3498db;
+}

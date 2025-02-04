@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #f4f4f4;
+}
+
+#scoreboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#player-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#add-player {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#playerNameInput, #scoreInput {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#addPlayerBtn { background-color: #4CAF50; color: white; }
+#startGame    { background-color: #2196F3; color: white; }
+#resetGame    { background-color: #9C27B0; color: white; }
+.remove-btn   { background-color: #f44336; color: white; }
+.change-starter-btn { background-color: #FFC107; color: black; }
+#submitScore  { background-color: #4CAF50; color: white; }
+#undoBtn      { background-color: #607D8B; color: white; }
+
+#player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.player-item button {
+    margin-left: 10px;
+}
+
+#tables-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.player-table {
+    border: 3px solid;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: black;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: #888 !important;
+}
+
+.current-score {
+    font-weight: bold;
+}
+
+.average {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Farben für Spieler-Tabellen */
+.player-table-0 { border-color: #2196F3; }
+.player-table-1 { border-color: #f44336; }
+.player-table-2 { border-color: #4CAF50; }
+.player-table-3 { border-color: #FFC107; }
+
+.change-starter-btn.selected {
+    background-color: #4CAF50;
+    color: white;
+}

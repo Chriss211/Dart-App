@@ -1,0 +1,165 @@
+/* styles.css - Zentrale Stile */
+:root {
+  /* Farbpalette */
+  --primary-color: #2196F3;
+  --secondary-color: #4CAF50;
+  --danger-color: #f44336;
+  --warning-color: #FFC107;
+  --dark-color: #333;
+  --light-color: #f4f4f4;
+  
+  /* Abstände */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  
+  /* Rahmen */
+  --border-radius: 8px;
+  --border-width: 2px;
+  
+  /* Schatten */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Grundlegende Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: var(--spacing-md);
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: var(--dark-color);
+  margin: var(--spacing-md) 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+}
+
+/* Gemeinsame Komponenten */
+.scoreboard {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md) auto;
+}
+
+/* Button-Styles */
+.btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Eingabefelder */
+.input-field {
+  padding: var(--spacing-sm);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  width: 100%;
+  margin: var(--spacing-sm) 0;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+/* Spielerliste */
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+}
+
+/* Tabellen */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--spacing-sm);
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.data-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scoreboard {
+    padding: var(--spacing-md);
+  }
+  
+  .btn {
+    width: 100%;
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .player-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Utility-Klassen */
+.text-center { text-align: center; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.hidden { display: none; }
