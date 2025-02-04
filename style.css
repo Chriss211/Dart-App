@@ -41,15 +41,16 @@ th, td {
     font-weight: bold;
 }
 
+.average {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
 /* Farben für Spieler-Tabellen */
 .player-table-0 { border-color: #2196F3; }
 .player-table-1 { border-color: #f44336; }
 .player-table-2 { border-color: #4CAF50; }
 .player-table-3 { border-color: #FFC107; }
-
-#current-turn {
-    margin: 20px 0;
-}
 
 button {
     padding: 10px 20px;

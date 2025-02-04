@@ -55,6 +55,7 @@ function initGame() {
     container.innerHTML = players.map((player, index) => `
         <div class="player-table player-table-${index % colors.length}" id="player-${index}">
             <h3 style="color: ${player.color}">${player.name}</h3>
+            <div class="average">Durchschnitt: -</div>
             <table>
                 <thead>
                     <tr><th>Score</th><th>Verbleibend</th></tr>
@@ -79,6 +80,7 @@ function addScore() {
     const input = document.getElementById('scoreInput');
     const points = parseInt(input.value);
     const currentPlayer = players[currentPlayerIndex];
+    const currentTable = document.getElementById(`player-${currentPlayerIndex}`);
 
     if (isNaN(points) || points < 0) {
         alert("Ungültige Eingabe!");
@@ -99,26 +101,38 @@ function addScore() {
     currentPlayer.score = newScore;
 
     // Update Tabelle
-    const tableBody = document.querySelector(`#player-${currentPlayerIndex} tbody`);
+    const tableBody = currentTable.querySelector('tbody');
     
-    // Neue Zeile unter der Kopfzeile einfügen
-    const newRow = tableBody.insertRow(1);
+    // Neue Zeile am Ende einfügen
+    const newRow = tableBody.insertRow();
     newRow.innerHTML = `
-        <td class="strikethrough">${points}</td>
-        <td class="strikethrough">${previousScore}</td>
+        <td>${points}</td>
+        <td>${newScore}</td>
     `;
 
-    // Aktuelle Score-Zeile updaten (unten)
-    const lastRow = tableBody.rows[tableBody.rows.length - 1];
-    lastRow.innerHTML = `
-        <td>-</td>
-        <td class="current-score" style="color: ${currentPlayer.color}">${newScore}</td>
-    `;
+    // Alle Zeilen durchstreichen (außer letzter)
+    const rows = tableBody.rows;
+    for (let i = 0; i < rows.length - 1; i++) {
+        rows[i].cells[0].classList.add('strikethrough');
+        rows[i].cells[1].classList.add('strikethrough');
+    }
+
+    // Letzte Zeile hervorheben
+    const lastRow = rows[rows.length - 1];
+    lastRow.cells[1].classList.add('current-score');
+    lastRow.cells[1].style.color = currentPlayer.color;
+
+    // Durchschnitt berechnen
+    const totalPoints = currentPlayer.history.reduce((a, b) => a + b, 0);
+    const average = currentPlayer.history.length > 0 
+        ? (totalPoints / currentPlayer.history.length).toFixed(2) 
+        : '-';
+    currentTable.querySelector('.average').textContent = `Durchschnitt: ${average}`;
 
     // Gewinnbedingung
     if (newScore === 0) {
         alert(`${currentPlayer.name} hat gewonnen! 🎉`);
-        resetGame();
+        resetLeg();
         return;
     }
 
@@ -139,13 +153,19 @@ function updateCurrentPlayer() {
         `${players[currentPlayerIndex].name} ist am Zug`;
 }
 
-document.getElementById('resetGame').addEventListener('click', resetGame);
+function resetLeg() {
+    players.forEach(player => {
+        player.score = 501;
+        player.history = [];
+    });
+    initGame();
+}
 
-function resetGame() {
+document.getElementById('resetGame').addEventListener('click', () => {
     players = [];
     currentPlayerIndex = 0;
     document.getElementById('game-section').style.display = 'none';
     document.getElementById('player-setup').style.display = 'block';
     document.getElementById('player-list').innerHTML = '';
     document.getElementById('playerNameInput').focus();
-}
+});
