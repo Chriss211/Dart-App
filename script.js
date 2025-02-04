@@ -1,5 +1,6 @@
 let players = [];
 let currentPlayerIndex = 0;
+let startingPlayerIndex = 0; // Spieler, der das nächste Leg beginnt
 const colors = ["#2196F3", "#f44336", "#4CAF50", "#FFC107"];
 
 // ========== SPIELER-VERWALTUNG ==========
@@ -18,6 +19,7 @@ function addPlayer() {
             name: name,
             score: 501,
             history: [],
+            legsWon: 0, // Leg-Zähler hinzufügen
             color: colors[players.length % colors.length]
         });
         updatePlayerList();
@@ -30,9 +32,10 @@ function addPlayer() {
 function updatePlayerList() {
     const playerList = document.getElementById('player-list');
     playerList.innerHTML = players.map((player, index) => `
-        <div class="player-item">
-            <span>${player.name}</span>
+        <div class="player-item" id="player-item-${index}" style="${index === startingPlayerIndex ? 'background-color: #e8f5e9;' : ''}">
+            <span>${player.name} (Legs: ${player.legsWon})</span>
             <button class="remove-btn" onclick="removePlayer(${index})">Entfernen</button>
+            <button class="change-starter-btn" onclick="setStartingPlayer(${index})">Anwurf</button>
         </div>
     `).join('');
 }
@@ -41,6 +44,11 @@ function removePlayer(index) {
     players.splice(index, 1);
     updatePlayerList();
     document.getElementById('startGame').disabled = players.length === 0;
+}
+
+function setStartingPlayer(index) {
+    startingPlayerIndex = index;
+    updatePlayerList();
 }
 
 // ========== SPIEL-LOGIK ==========
@@ -56,6 +64,7 @@ function initGame() {
         <div class="player-table player-table-${index % colors.length}" id="player-${index}">
             <h3 style="color: ${player.color}">${player.name}</h3>
             <div class="average">Durchschnitt: -</div>
+            <div class="legs">Gewonnene Legs: ${player.legsWon}</div>
             <table>
                 <thead>
                     <tr><th>Score</th><th>Verbleibend</th></tr>
@@ -67,6 +76,7 @@ function initGame() {
         </div>
     `).join('');
 
+    currentPlayerIndex = startingPlayerIndex; // Startspieler setzen
     updateCurrentPlayer();
     document.getElementById('scoreInput').focus();
 }
@@ -131,7 +141,7 @@ function addScore() {
 
     // Gewinnbedingung
     if (newScore === 0) {
-        alert(`${currentPlayer.name} hat gewonnen! 🎉`);
+        currentPlayer.legsWon++; // Leg-Zähler erhöhen
         resetLeg();
         return;
     }
@@ -139,7 +149,7 @@ function addScore() {
     // Nächster Spieler
     currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
     updateCurrentPlayer();
-    input.value = '';
+    input.value = ''; // Eingabefeld leeren
     input.focus();
 }
 
@@ -158,12 +168,21 @@ function resetLeg() {
         player.score = 501;
         player.history = [];
     });
+
+    // Anwurf wechseln
+    startingPlayerIndex = (startingPlayerIndex + 1) % players.length;
+    currentPlayerIndex = startingPlayerIndex;
+
+    // UI aktualisieren
     initGame();
+    document.getElementById('scoreInput').value = ''; // Eingabefeld leeren
+    document.getElementById('scoreInput').focus();
 }
 
 document.getElementById('resetGame').addEventListener('click', () => {
     players = [];
     currentPlayerIndex = 0;
+    startingPlayerIndex = 0;
     document.getElementById('game-section').style.display = 'none';
     document.getElementById('player-setup').style.display = 'block';
     document.getElementById('player-list').innerHTML = '';
