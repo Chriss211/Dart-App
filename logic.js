@@ -57,10 +57,10 @@ function initGame() {
             <h3 style="color: ${player.color}">${player.name}</h3>
             <table>
                 <thead>
-                    <tr><th>Verbleibend</th><th>Score</th></tr>
+                    <tr><th>Score</th><th>Verbleibend</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td class="current-score">501</td><td>-</td></tr>
+                    <tr><td>-</td><td class="current-score">501</td></tr>
                 </tbody>
             </table>
         </div>
@@ -104,15 +104,15 @@ function addScore() {
     // Neue Zeile unter der Kopfzeile einfügen
     const newRow = tableBody.insertRow(1);
     newRow.innerHTML = `
-        <td class="strikethrough">${previousScore}</td>
         <td class="strikethrough">${points}</td>
+        <td class="strikethrough">${previousScore}</td>
     `;
 
     // Aktuelle Score-Zeile updaten (unten)
     const lastRow = tableBody.rows[tableBody.rows.length - 1];
     lastRow.innerHTML = `
-        <td class="current-score" style="color: ${currentPlayer.color}">${newScore}</td>
         <td>-</td>
+        <td class="current-score" style="color: ${currentPlayer.color}">${newScore}</td>
     `;
 
     // Gewinnbedingung
