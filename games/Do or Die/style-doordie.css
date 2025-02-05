@@ -101,3 +101,254 @@ button {
 .active-player {
     box-shadow: 0 0 0 3px #3498db;
 }
+#setup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.setup-container {
+    background: rgba(25, 25, 25, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.player-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-player {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+#playerName {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.player-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.starter-btn {
+    background: #3498db;
+    color: white;
+}
+
+.starter-btn.selected {
+    background: #2ecc71;
+}
+
+#startGame {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-top: 1rem;22:02 05.02.2025
+}
+.life-points-selection {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#lifePointsOption {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+#customLifeContainer {
+    margin-top: 10px;
+}
+
+#customLifePoints {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.last-score {
+    color: #3498db;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* ==== MODERNES SETUP-DESIGN ==== */
+#setup-screen {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: white;
+}
+
+.setup-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.life-points-selection {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#lifePointsOption {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #3498db;
+    color: white;
+    border-radius: 6px;
+    padding: 12px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+#customLifeContainer input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.player-setup {
+    background: rgba(0, 0, 0, 0.25);
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.add-player {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+#playerName {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #3498db;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.add-player button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.add-player button:hover {
+    background: rgba(52, 152, 219, 0.2);
+    border-color: #3498db;
+}
+.add-player button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #3498db;
+}
+
+.player-list {
+    display: grid;
+    gap: 12px;
+}
+
+.player-item {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.starter-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #3498db;
+    color: #3498db;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.starter-btn.selected {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.remove-btn {
+    background: rgba(255, 50, 50, 0.2);
+    border: 2px solid #ff3232;
+    color: #ff3232;
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: #ff3232;
+    color: white;
+}
+
+#startGame {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    letter-spacing: 0.5px;
+}
+
+#startGame:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+}}
+
+#startGame:disabled {
+    background: #34495e;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
