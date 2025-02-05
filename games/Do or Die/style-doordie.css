@@ -1,106 +1,13 @@
+/* === GRUNDLEGENDE STILE === */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
     margin: 0;
     padding: 20px;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-h1 {
-    color: #e74c3c;
-    font-size: 2.5em;
-    margin-bottom: 30px;
-}
-
-.players-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.player {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 200px;
-}
-
-.life-bar {
-    height: 20px;
-    background: #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 10px 0;
-}
-
-.life-progress {
-    height: 100%;
-    background: #2ecc71;
-    width: 100%;
-    transition: width 0.3s ease;
-}
-
-.current-score {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #3498db;
-    margin: 10px 0;
-}
-
-.game-controls {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-input[type="number"] {
-    padding: 10px;
-    font-size: 1.2em;
-    border: 2px solid #3498db;
-    border-radius: 5px;
-    text-align: center;
-}
-
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: 0.3s;
-}
-
-#throwBtn {
-    background: #3498db;
-    color: white;
-}
-
-#throwBtn:hover {
-    background: #2980b9;
-}
-
-#resetGame {
-    background: #e74c3c;
-    color: white;
-    margin-top: 20px;
-}
-
-#resetGame:hover {
-    background: #c0392b;
-}
-
-.active-player {
-    box-shadow: 0 0 0 3px #3498db;
-}
+/* === SETUP-SCREEN === */
 #setup-screen {
     position: fixed;
     top: 0;
@@ -115,124 +22,38 @@ button {
 }
 
 .setup-container {
-    background: rgba(25, 25, 25, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.player-setup {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.add-player {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 1rem;
-}
-
-#playerName {
-    flex: 1;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.player-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.player-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 5px;
-}
-
-.player-item button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-}
-
-.starter-btn {
-    background: #3498db;
-    color: white;
-}
-
-.starter-btn.selected {
-    background: #2ecc71;
-}
-
-#startGame {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2rem;
-    margin-top: 1rem;22:02 05.02.2025
-}
-.life-points-selection {
-    background: rgba(0, 0, 0, 0.4);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-#lifePointsOption {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-#customLifeContainer {
-    margin-top: 10px;
-}
-
-#customLifePoints {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.last-score {
-    color: #3498db;
-    font-weight: bold;
-    margin: 10px 0;
-}
-/* ==== MODERNES SETUP-DESIGN ==== */
-#setup-screen {
-    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-    color: white;
-}
-
-.setup-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(35, 35, 35, 0.95);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #3498db;
     text-align: center;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    font-weight: 600;
 }
 
+/* === LEBENSPUNKTE-AUSWAHL === */
 .life-points-selection {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    border-radius: 8px;
     margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 
 #lifePointsOption {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #3498db;
-    color: white;
-    border-radius: 6px;
+    width: 100%;
     padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 6px;
     appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -240,15 +61,24 @@ h2 {
     background-size: 16px;
 }
 
-#customLifeContainer input {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+#customLifeContainer {
+    margin-top: 1rem;
 }
 
+#customLifePoints {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* === SPIELER-SETUP === */
 .player-setup {
-    background: rgba(0, 0, 0, 0.25);
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
 }
 
 .add-player {
@@ -259,96 +89,153 @@ h2 {
 }
 
 #playerName {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid #3498db;
-    color: white;
     padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
     border-radius: 6px;
     font-size: 1rem;
 }
 
 .add-player button {
-    background: #3498db;
-    color: white;
-    border: none;
     padding: 12px 20px;
+    background: rgba(52, 152, 219, 0.1);
+    border: 2px solid #3498db;
+    color: #3498db;
     border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s;
-}
-.add-player button:hover {
-    background: rgba(52, 152, 219, 0.2);
-    border-color: #3498db;
-}
-.add-player button {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: #3498db;
+    transition: all 0.3s ease;
 }
 
+.add-player button:hover {
+    background: rgba(52, 152, 219, 0.2);
+}
+
+.add-player button::before {
+    content: "➕";
+    margin-right: 8px;
+}
+
+/* === SPIELERLISTE === */
 .player-list {
     display: grid;
     gap: 12px;
+    margin-bottom: 1.5rem;
 }
 
 .player-item {
-    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
 }
 
 .player-item:hover {
-    background: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
 }
 
+/* === BUTTONS === */
 .starter-btn {
-    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
     border: 2px solid #3498db;
     color: #3498db;
-    padding: 8px 16px;
     border-radius: 20px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .starter-btn.selected {
     background: #3498db;
-    color: white;
-    border-color: #3498db;
+    color: #fff;
+}
+
+.starter-btn.selected::before {
+    content: "🎯";
+    margin-right: 6px;
 }
 
 .remove-btn {
-    background: rgba(255, 50, 50, 0.2);
+    padding: 8px 12px;
+    background: rgba(255, 50, 50, 0.1);
     border: 2px solid #ff3232;
     color: #ff3232;
-    padding: 8px 12px;
     border-radius: 20px;
     margin-left: 10px;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .remove-btn:hover {
-    background: #ff3232;
-    color: white;
+    background: rgba(255, 50, 50, 0.2);
 }
 
 #startGame {
+    width: 100%;
+    padding: 16px;
     background: linear-gradient(135deg, #3498db, #2980b9);
-    letter-spacing: 0.5px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 #startGame:hover {
     background: linear-gradient(135deg, #2980b9, #3498db);
-}}
-
-#startGame:disabled {
-    background: #34495e;
-    cursor: not-allowed;
-    opacity: 0.7;
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-2px);
 }
 
-/* Placeholder Styling */
+#startGame:disabled {
+    background: #2c3e50;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* === SPIELFELD === */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.player {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.life-bar {
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.life-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    transition: width 0.5s ease;
+}
+
+/* === HELPER-KLASSEN === */
+.hidden {
+    display: none !important;
+}
+
+.active-player {
+    box-shadow: 0 0 0 3px #3498db;
+}
+
 ::placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(255, 255, 255, 0.4) !important;
 }
