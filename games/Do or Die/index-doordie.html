@@ -7,62 +7,65 @@
     <link rel="stylesheet" href="style-doordie.css">
 </head>
 <body>
-<div id="setup-screen">
-    <div class="setup-container">
-        <h2>🎯 Spiel vorbereiten</h2>
-        
-        <div class="life-points-selection">
-            <div class="setting-header">
-                <span>⚖️ Lebenspunkte</span>
-            </div>
-            <select id="lifePointsOption">
-                <option value="standard">Standard (1000)</option>
-                <option value="custom">Individuelle Punkte</option>
-            </select>
-            <div id="customLifeContainer" style="display: none;">
-                <input type="number" id="customLifePoints" 
-                       placeholder="Gib Lebenspunkte ein..." 
-                       min="100" 
-                       value="1000">
-            </div>
-        </div>
+    <div id="setup-screen">
+        <div class="setup-container">
+            <h2 class="setup-header">Spielkonfiguration</h2>
+            
+            <div class="config-section">
+                <div class="config-card">
+                    <h3 class="config-title">Lebenspunkte</h3>
+                    <div class="config-content">
+                        <select id="lifePointsOption" class="life-select">
+                            <option value="standard">Standard (1000)</option>
+                            <option value="custom">Benutzerdefiniert</option>
+                        </select>
+                        <div id="customLifeContainer" class="hidden">
+                            <input type="number" id="customLifePoints" 
+                                   class="life-input"
+                                   placeholder="Lebenspunkte eingeben" 
+                                   min="100" 
+                                   value="1000">
+                        </div>
+                    </div>
+                </div>
 
-        <div class="player-setup">
-            <div class="setting-header">
-                <span>👥 Spielerverwaltung</span>
+                <div class="config-card">
+                    <h3 class="config-title">Spielerverwaltung</h3>
+                    <div class="config-content">
+                        <div class="player-input-group">
+                            <input type="text" 
+                                   id="playerName" 
+                                   class="player-input"
+                                   placeholder="Neuer Spielername">
+                            <button onclick="addPlayer()" class="add-player-btn">
+                                Spieler hinzufügen
+                            </button>
+                        </div>
+                        <div id="playerList" class="player-list"></div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="add-player">
-                <input type="text" 
-                       id="playerName" 
-                       placeholder="Spielername eingeben...">
-                <button onclick="addPlayer()">➕ Hinzufügen</button>
-            </div>
-            
-            <div id="playerList" class="player-list"></div>
-            
-            <button id="startGame" disabled>
-                🚀 Spiel starten
+
+            <button id="startGame" class="start-game-btn" disabled>
+                Spiel starten
             </button>
         </div>
     </div>
-</div>
-<div class="container" style="display: none;">
-    
-</div>    
-<div class="container">
-        <h1>DO OR DIE</h1>
-        
-        <div class="players-container">
-            <!-- Spieler werden dynamisch hinzugefügt -->
-        </div>
 
-        <div class="game-controls">
-            <input type="number" id="scoreInput" placeholder="Punkte eingeben" min="0">
-            <button id="throwBtn">Wurf!</button>
-            <button id="resetGame">Neues Spiel</button>
+    <div class="game-container hidden">
+        <div class="game-header">
+            <h1>🎯 DO OR DIE</h1>
         </div>
-    </div>
+        <div class="players-container"></div>
+        
+
+<div class="game-controls">
+    <input type="number" id="scoreInput" placeholder="Punkte eingeben" min="0" max="180">
+    <button id="throwBtn">Wurf!</button>
+    <button id="undoBtn">Undo</button>
+    <button id="resetGame">Neues Spiel</button>
+</div>
+
 
     <script src="script-doordie.js"></script>
 </body>
