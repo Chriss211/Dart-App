@@ -1,20 +1,19 @@
-/* === GRUNDLEGENDE STILE === */
+/* === ALLGEMEINE STILE === */
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
     margin: 0;
     padding: 20px;
 }
 
-/* === SETUP-SCREEN === */
+/* === SETUP-BEREICH === */
 #setup-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0,0,0,0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,114 +21,99 @@ body {
 }
 
 .setup-container {
-    background: rgba(35, 35, 35, 0.95);
-    padding: 2rem;
-    border-radius: 12px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    max-width: 680px;
     width: 90%;
-    max-width: 600px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-h2 {
-    font-size: 1.8rem;
-    color: #3498db;
+.setup-header {
     text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 35px 0;
+    font-size: 28px;
 }
 
-/* === LEBENSPUNKTE-AUSWAHL === */
-.life-points-selection {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-}
-
-#lifePointsOption {
-    width: 100%;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 6px;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-}
-
-#customLifeContainer {
-    margin-top: 1rem;
-}
-
-#customLifePoints {
-    width: 100%;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 6px;
-}
-
-/* === SPIELER-SETUP === */
-.player-setup {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.add-player {
+.config-section {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    margin-bottom: 1.5rem;
+    gap: 25px;
 }
 
-#playerName {
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
-    border-radius: 6px;
-    font-size: 1rem;
+.config-card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 25px;
 }
 
-.add-player button {
-    padding: 12px 20px;
-    background: rgba(52, 152, 219, 0.1);
-    border: 2px solid #3498db;
-    color: #3498db;
-    border-radius: 6px;
+.config-title {
+    color: #2c3e50;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+}
+
+.life-select {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #2196F3;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+    margin-bottom: 15px;
+}
+
+.life-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #2196F3;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.player-input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.player-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 2px solid #2196F3;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.add-player-btn {
+    padding: 14px 30px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-.add-player button:hover {
-    background: rgba(52, 152, 219, 0.2);
+.add-player-btn:hover {
+    background: #1976d2;
+    transform: translateY(-1px);
 }
 
-.add-player button::before {
-    content: "➕";
-    margin-right: 8px;
-}
-
-/* === SPIELERLISTE === */
 .player-list {
     display: grid;
     gap: 12px;
-    margin-bottom: 1.5rem;
 }
 
 .player-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 16px;
+    background: white;
+    border: 2px solid #e9ecef;
     border-radius: 8px;
     transition: transform 0.2s ease;
 }
@@ -138,104 +122,257 @@ h2 {
     transform: translateX(5px);
 }
 
-/* === BUTTONS === */
 .starter-btn {
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid #3498db;
-    color: #3498db;
+    padding: 8px 20px;
+    background: #ffd700;
+    color: #2c3e50;
+    border: none;
     border-radius: 20px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .starter-btn.selected {
-    background: #3498db;
-    color: #fff;
-}
-
-.starter-btn.selected::before {
-    content: "🎯";
-    margin-right: 6px;
+    background: #4CAF50;
+    color: white;
 }
 
 .remove-btn {
-    padding: 8px 12px;
-    background: rgba(255, 50, 50, 0.1);
-    border: 2px solid #ff3232;
-    color: #ff3232;
+    padding: 8px 18px;
+    background: #e74c3c;
+    color: white;
+    border: none;
     border-radius: 20px;
-    margin-left: 10px;
+    margin-left: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .remove-btn:hover {
-    background: rgba(255, 50, 50, 0.2);
+    background: #c0392b;
 }
 
-#startGame {
+.start-game-btn {
     width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: #fff;
+    padding: 18px;
+    background: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: 600;
+    margin-top: 30px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
-#startGame:hover {
-    background: linear-gradient(135deg, #2980b9, #3498db);
+.start-game-btn:hover {
+    background: #45a049;
     transform: translateY(-2px);
 }
 
-#startGame:disabled {
-    background: #2c3e50;
+.start-game-btn:disabled {
+    background: #95a5a6;
     cursor: not-allowed;
-    opacity: 0.7;
+    transform: none;
 }
 
-/* === SPIELFELD === */
-.container {
+/* === SPIELBEREICH === */
+.game-container {
     max-width: 800px;
     margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.game-header {
     text-align: center;
+    margin: 0 0 40px 0;
+    padding-bottom: 20px;
+}
+
+.game-header h1 {
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.players-container {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .player {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    padding: 25px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
     border-radius: 12px;
-    margin: 1rem 0;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.player:hover {
+    transform: translateY(-3px);
+}
+
+.life-container {
+    margin: 25px 0;
+}
+
+.life-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #2c3e50;
+    font-weight: 600;
 }
 
 .life-bar {
-    height: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    height: 25px;
+    background: #e9ecef;
+    border-radius: 15px;
     overflow: hidden;
-    margin: 1rem 0;
+    position: relative;
 }
 
 .life-progress {
     height: 100%;
-    background: linear-gradient(90deg, #2ecc71, #27ae60);
-    transition: width 0.5s ease;
+    background: #2ecc71;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* === HELPER-KLASSEN === */
-.hidden {
-    display: none !important;
+.score-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.score-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+}
+
+.score-label {
+    color: #95a5a6;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.score-value {
+    font-weight: 600;
+    font-size: 1.4em;
+    color: #2c3e50;
+}
+
+.game-controls {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#scoreInput {
+    max-width: 200px;
+    padding: 14px 20px;
+    border: 2px solid #2196F3;
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+#undoBtn {
+    background: #ff9800;
+}
+
+#undoBtn:hover {
+    background: #f57c00;
+}
+#throwBtn {
+    padding: 14px 30px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+#throwBtn:hover {
+    background: #1976d2;
+    transform: translateY(-2px);
+}
+
+#resetGame {
+    grid-column: 1 / -1;
+    padding: 14px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
 }
 
 .active-player {
-    box-shadow: 0 0 0 3px #3498db;
+    border-color: #2196F3;
+    box-shadow: 0 4px 15px rgba(33,150,243,0.1);
 }
 
-::placeholder {
-    color: rgba(255, 255, 255, 0.4) !important;
+.leg-result-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.leg-result-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.continue-btn {
+    padding: 15px 30px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.leg-counter {
+    font-size: 0.8em;
+    color: #95a5a6;
+    margin-left: 10px;
+}
+
+.winner-text {
+    color: #2ecc71;
+    font-size: 1.4em;
+    margin: 15px 0;
+}
+
+.hidden {
+    display: none !important;
 }
